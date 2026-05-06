@@ -348,16 +348,20 @@ async function submitRsvp() {
     <main>
       <section id="hero" class="hero">
         <div class="hero-heart hero-heart-left" aria-hidden="true"></div>
+        <div class="hero-blush hero-blush-right" aria-hidden="true"></div>
+        <div class="hero-side-lines" aria-hidden="true">
+          <span class="hero-side-line hero-side-line-left">Мы давно идём к этому.</span>
+          <span class="hero-side-line hero-side-line-right">Очень давно.</span>
+        </div>
         <div class="hero-copy hero-static">
+          <p class="hero-kicker">Свадебное приглашение</p>
           <h1>
-            <span>Мы выросли.</span>
-            <span>Нам разрешили.</span>
+            <span>Мы давно идём к этому.</span>
+            <span>Очень давно.</span>
           </h1>
-          <p class="hero-meta">24 июля 2026 · Кибик</p>
-          <div class="hero-actions">
-            <a class="button" href="#rsvp">Подтвердить участие</a>
-            <a class="text-link" href="#location">Открыть локацию</a>
-          </div>
+          <p class="hero-subline">Настя и Коля</p>
+          <div class="hero-rule" aria-hidden="true"></div>
+          <p class="hero-meta">24 июля 2026 · База отдыха Кибик</p>
         </div>
 
         <div class="hero-visual hero-static">
@@ -549,6 +553,9 @@ async function submitRsvp() {
           Нам будет очень приятно, если вы заполните короткую форму и поможете нам всё подготовить
           заранее.
         </p>
+        <p v-if="!hasSubmittedRsvp" class="cta-note cta-note-soft reveal">
+          После подтверждения участия мы сразу откроем детали подарка.
+        </p>
         <div v-if="hasSubmittedRsvp" class="rsvp-success-inline" role="status" aria-live="polite">
           <p class="rsvp-success-eyebrow">Подтверждение сохранено</p>
           <p class="rsvp-success-inline-text">
@@ -718,22 +725,6 @@ async function submitRsvp() {
             </a>
           </div>
         </form>
-      </section>
-
-      <section v-if="!hasSubmittedRsvp" id="gifts" class="section gifts">
-        <div class="section-heading reveal">
-          <p class="eyebrow">Подарок</p>
-          <h2>Самое важное для нас — быть вместе с вами в этот день.</h2>
-        </div>
-        <div class="gifts-card gifts-card-locked">
-          <p class="gifts-copy">
-            Детали подарка откроются после того, как вы подтвердите участие.
-          </p>
-          <div class="gifts-divider" aria-hidden="true"></div>
-          <div class="center-actions">
-            <a class="button" href="#rsvp">Подтвердить участие</a>
-          </div>
-        </div>
       </section>
     </main>
   </div>
