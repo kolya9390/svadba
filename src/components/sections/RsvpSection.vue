@@ -1,0 +1,196 @@
+<script setup>
+import SectionHeading from "../shared/SectionHeading.vue";
+
+defineProps({
+  hasSubmittedRsvp: {
+    type: Boolean,
+    required: true,
+  },
+  submittedGuestName: {
+    type: String,
+    default: "",
+  },
+  lastSubmittedAt: {
+    type: String,
+    default: "",
+  },
+  hasGiftCollectionLink: {
+    type: Boolean,
+    required: true,
+  },
+  giftCollectionUrl: {
+    type: String,
+    default: "",
+  },
+  rsvpForm: {
+    type: Object,
+    required: true,
+  },
+  submitState: {
+    type: String,
+    required: true,
+  },
+  drinkOptions: {
+    type: Array,
+    required: true,
+  },
+  googleFormViewUrl: {
+    type: String,
+    required: true,
+  },
+});
+
+const emit = defineEmits(["submit", "start-new-response"]);
+</script>
+
+<template>
+  <section id="rsvp" class="section cta">
+    <SectionHeading
+      :eyebrow="hasSubmittedRsvp ? 'Ответ получен' : 'Анкета гостя'"
+      :title="hasSubmittedRsvp ? 'Спасибо, мы будем ждать вас в этот день.' : 'Пожалуйста, подтвердите Ваше присутствие'"
+    />
+
+    <p v-if="!hasSubmittedRsvp" class="cta-note reveal">
+      Нам будет очень приятно, если вы заполните короткую форму и поможете нам всё подготовить заранее.
+    </p>
+
+    <div v-if="hasSubmittedRsvp" class="rsvp-success-inline" role="status" aria-live="polite">
+      <p class="rsvp-success-eyebrow">Подтверждение сохранено</p>
+      <p class="rsvp-success-inline-text">
+        Спасибо, {{ submittedGuestName }}. Мы сохранили подтверждение{{ lastSubmittedAt ? ` ${lastSubmittedAt}` : "" }}
+        и открыли следующий шаг ниже.
+      </p>
+      <div v-if="hasGiftCollectionLink" class="rsvp-gift-inline">
+        <p class="rsvp-gift-inline-text">
+          Если захотите порадовать нас дополнительно, можно сделать это сразу по кнопке ниже.
+        </p>
+        <a class="button" :href="giftCollectionUrl" target="_blank" rel="noreferrer"> Бабло </a>
+      </div>
+      <div class="rsvp-success-actions">
+        <button class="text-link" type="button" @click="emit('start-new-response')">Заполнить заново</button>
+        <a class="text-link" :href="googleFormViewUrl" target="_blank" rel="noreferrer">
+          Открыть Google Form
+        </a>
+      </div>
+    </div>
+
+    <form v-if="!hasSubmittedRsvp" class="rsvp-form reveal" @submit.prevent="emit('submit')">
+      <div class="rsvp-form-head field-full">
+        <span class="rsvp-form-badge">Короткая анкета гостя</span>
+        <p class="rsvp-form-lead">После подтверждения участия мы сразу откроем детали подарка.</p>
+      </div>
+
+      <label class="field field-full">
+        <span>Ваше имя и фамилия</span>
+        <input
+          v-model="rsvpForm.fullName"
+          type="text"
+          name="fullName"
+          autocomplete="name"
+          maxlength="120"
+          required
+          placeholder="Например, Анна Иванова"
+        />
+      </label>
+
+      <fieldset class="field field-full segmented">
+        <legend>Сможете прийти?</legend>
+        <div class="segmented-options">
+          <label>
+            <input
+              v-model="rsvpForm.attendance"
+              type="radio"
+              value="С удовольствием приду"
+              name="attendance"
+            />
+            <span>С удовольствием приду</span>
+          </label>
+          <label>
+            <input
+              v-model="rsvpForm.attendance"
+              type="radio"
+              value="К сожалению, не смогу"
+              name="attendance"
+            />
+            <span>К сожалению, не смогу</span>
+          </label>
+        </div>
+      </fieldset>
+
+      <label class="field field-full field-compact">
+        <span>Сколько гостей будет с вами?</span>
+        <select v-model="rsvpForm.guestsCount" name="guestsCount">
+          <option value="Только я">Только я</option>
+          <option value="+1">+1</option>
+        </select>
+      </label>
+
+      <fieldset class="field field-full segmented segmented-secondary">
+        <legend>Нужен ли трансфер до места проведения мероприятия?</legend>
+        <div class="segmented-options">
+          <label>
+            <input v-model="rsvpForm.transfer" type="radio" value="Да, буду рад" name="transfer" />
+            <span>Да, буду рад</span>
+          </label>
+          <label>
+            <input v-model="rsvpForm.transfer" type="radio" value="Доберусь сам" name="transfer" />
+            <span>Доберусь сам</span>
+          </label>
+          <label>
+            <input v-model="rsvpForm.transfer" type="radio" value="Сообщу позже" name="transfer" />
+            <span>Сообщу позже</span>
+          </label>
+        </div>
+      </fieldset>
+
+      <fieldset class="field field-full checklist">
+        <legend>Что вам ближе из напитков?</legend>
+        <div class="check-options">
+          <label v-for="drink in drinkOptions" :key="drink">
+            <input v-model="rsvpForm.drinks" type="checkbox" :value="drink" name="drinks" />
+            <span>{{ drink }}</span>
+          </label>
+        </div>
+      </fieldset>
+
+      <label class="field field-full">
+        <span>Ваши пожелания или комментарии для Николая и Анастасии</span>
+        <textarea
+          v-model="rsvpForm.notes"
+          name="notes"
+          rows="5"
+          maxlength="500"
+          placeholder="Например, особенности питания, вопросы по размещению или что-то важное для нас"
+        ></textarea>
+      </label>
+
+      <div class="form-footer field-full">
+        <button class="button submit-button" type="submit" :disabled="submitState === 'submitting'">
+          {{ submitState === "submitting" ? "Отправляем..." : "Отправить ответ" }}
+        </button>
+        <p class="form-disclaimer">
+          После отправки мы покажем подтверждение на этой странице. Если захотите перестраховаться,
+          анкету всегда можно открыть напрямую в Google Forms.
+        </p>
+
+        <p v-if="submitState === 'validation_error'" class="form-message">Пожалуйста, укажите ваше имя.</p>
+        <p v-else-if="submitState === 'integration_pending'" class="form-message">
+          Форма уже готова. Осталось подключить `Google Forms formResponse` и `entry`-id полей.
+        </p>
+        <p v-else-if="submitState === 'success'" class="form-message form-message-success">
+          Похоже, всё получилось. Мы сохранили подтверждение в этом браузере.
+        </p>
+        <p v-else-if="submitState === 'error'" class="form-message">
+          Не получилось отправить форму. Попробуйте ещё раз чуть позже или откройте анкету напрямую.
+        </p>
+        <details class="form-fallback">
+          <p>
+            <a class="text-link form-fallback-link" :href="googleFormViewUrl" target="_blank" rel="noreferrer">
+              откройте анкету напрямую в Google Form
+            </a>
+          </p>
+        </details>
+      </div>
+    </form>
+  </section>
+</template>

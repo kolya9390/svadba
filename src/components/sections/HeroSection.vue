@@ -1,0 +1,36 @@
+<script setup>
+defineProps({
+  childhoodPhoto: {
+    type: String,
+    required: true,
+  },
+});
+</script>
+
+<template>
+  <section id="hero" class="hero">
+    <div class="hero-heart hero-heart-left" aria-hidden="true"></div>
+    <div class="hero-blush hero-blush-right" aria-hidden="true"></div>
+    <div class="hero-copy hero-static">
+      <p class="hero-kicker">Свадебное приглашение</p>
+      <h1>
+        <span>Мы давно идём к этому.</span>
+        <span>Очень давно.</span>
+      </h1>
+      <div class="hero-rule" aria-hidden="true"></div>
+      <p class="hero-meta">24 июля 2026 · База отдыха Кибик</p>
+    </div>
+
+    <div class="hero-visual hero-static">
+      <div class="photo-card childhood">
+        <div class="photo-frame">
+          <img class="photo-image photo-image-childhood" :src="childhoodPhoto" alt="Детская фотография пары" />
+        </div>
+        <div class="hero-names" aria-hidden="true">
+          <span class="hero-name hero-name-left">Анастасия</span>
+          <span class="hero-name hero-name-right">Николай</span>
+        </div>
+      </div>
+    </div>
+  </section>
+</template>
