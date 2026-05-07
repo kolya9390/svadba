@@ -16,7 +16,6 @@ defineProps({
     <div class="section-heart section-heart-right" aria-hidden="true"></div>
     <div class="invitation-grid">
       <div class="invitation-copy reveal">
-        <p class="eyebrow invitation-title">Дорогие Гости!</p>
         <h2 class="invitation-heading">Будем счастливы разделить этот день с вами.</h2>
         <p class="invitation-text">
           {{ invitationText }}

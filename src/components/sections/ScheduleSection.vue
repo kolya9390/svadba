@@ -11,14 +11,13 @@ defineProps({
 
 <template>
   <section id="schedule" class="section schedule">
-    <SectionHeading eyebrow="Программа дня" title="Программа торжества" />
+    <SectionHeading title="Программа торжества" />
 
     <div class="schedule-layout schedule-layout-simple">
-      <ol class="timeline">
+      <ol class="timeline timeline-list">
         <li v-for="item in timeline" :key="item.time" class="timeline-item reveal">
-          <div class="timeline-dot"></div>
-          <div class="timeline-card">
-            <p class="timeline-time">{{ item.time }}</p>
+          <p class="timeline-time">{{ item.time }}</p>
+          <div class="timeline-copy">
             <h3>{{ item.title }}</h3>
             <p>{{ item.text }}</p>
           </div>

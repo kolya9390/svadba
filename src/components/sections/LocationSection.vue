@@ -25,7 +25,7 @@ const emit = defineEmits(["map-error", "copy-coordinates"]);
 
 <template>
   <section id="location" class="section location">
-    <SectionHeading eyebrow="Локация" title="Место проведения торжества" />
+    <SectionHeading title="Место проведения торжества" />
 
     <div class="location-layout reveal">
       <div class="location-card">

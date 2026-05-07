@@ -46,7 +46,6 @@ const emit = defineEmits(["submit", "start-new-response"]);
 <template>
   <section id="rsvp" class="section cta">
     <SectionHeading
-      :eyebrow="hasSubmittedRsvp ? 'Ответ получен' : 'Анкета гостя'"
       :title="hasSubmittedRsvp ? 'Спасибо, мы будем ждать вас в этот день.' : 'Пожалуйста, подтвердите Ваше присутствие'"
     />
 
@@ -76,7 +75,6 @@ const emit = defineEmits(["submit", "start-new-response"]);
 
     <form v-if="!hasSubmittedRsvp" class="rsvp-form reveal" @submit.prevent="emit('submit')">
       <div class="rsvp-form-head field-full">
-        <span class="rsvp-form-badge">Короткая анкета гостя</span>
         <p class="rsvp-form-lead">После подтверждения участия мы сразу откроем детали подарка.</p>
       </div>
 
@@ -117,7 +115,7 @@ const emit = defineEmits(["submit", "start-new-response"]);
         </div>
       </fieldset>
 
-      <label class="field field-full field-compact">
+      <label class="field field-full">
         <span>Сколько гостей будет с вами?</span>
         <select v-model="rsvpForm.guestsCount" name="guestsCount">
           <option value="Только я">Только я</option>

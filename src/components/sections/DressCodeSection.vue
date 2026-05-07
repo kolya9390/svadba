@@ -11,7 +11,7 @@ defineProps({
 
 <template>
   <section id="dress-code" class="section dress-code">
-    <SectionHeading eyebrow="Дресс-код" title="Поддержите палитру нашего торжества" />
+    <SectionHeading title="Поддержите палитру нашего торжества" />
 
     <div class="palette-strip reveal" aria-label="Палитра дресс-кода">
       <div
@@ -19,6 +19,7 @@ defineProps({
         :key="swatch.label"
         class="palette-block"
         :style="{ '--swatch': swatch.color }"
+        :aria-label="swatch.label"
       >
         <span class="palette-swatch" aria-hidden="true"></span>
         <span class="palette-label">{{ swatch.label }}</span>

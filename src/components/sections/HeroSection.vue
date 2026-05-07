@@ -12,7 +12,6 @@ defineProps({
     <div class="hero-heart hero-heart-left" aria-hidden="true"></div>
     <div class="hero-blush hero-blush-right" aria-hidden="true"></div>
     <div class="hero-copy hero-static">
-      <p class="hero-kicker">Свадебное приглашение</p>
       <h1>
         <span>Мы давно идём к этому.</span>
         <span>Очень давно.</span>
