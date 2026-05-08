@@ -9,7 +9,6 @@ defineProps({
 
 <template>
   <section id="hero" class="hero">
-    <div class="hero-heart hero-heart-left" aria-hidden="true"></div>
     <div class="hero-blush hero-blush-right" aria-hidden="true"></div>
     <div class="hero-copy hero-static">
       <h1>

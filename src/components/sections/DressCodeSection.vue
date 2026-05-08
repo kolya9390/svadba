@@ -11,7 +11,7 @@ defineProps({
 
 <template>
   <section id="dress-code" class="section dress-code">
-    <SectionHeading title="Поддержите палитру нашего торжества" />
+    <SectionHeading title="Палитра торжества" />
 
     <div class="palette-strip reveal" aria-label="Палитра дресс-кода">
       <div
@@ -26,8 +26,8 @@ defineProps({
       </div>
     </div>
     <p class="dress-note reveal">
-      Белый цвет, пожалуйста, оставьте невесте. Во всём остальном ориентируйтесь на тёплые
-      коричневые, пудровые и приглушённые зелёные оттенки из палитры.
+      Белый цвет оставьте невесте. Остальное — тёплые коричневые, пудровые и приглушённые зелёные
+      оттенки из палитры.
     </p>
   </section>
 </template>

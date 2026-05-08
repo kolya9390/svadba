@@ -46,11 +46,11 @@ const emit = defineEmits(["submit", "start-new-response"]);
 <template>
   <section id="rsvp" class="section cta">
     <SectionHeading
-      :title="hasSubmittedRsvp ? 'Спасибо, мы будем ждать вас в этот день.' : 'Пожалуйста, подтвердите Ваше присутствие'"
+      :title="hasSubmittedRsvp ? 'Спасибо, будем ждать вас.' : 'Подтвердите присутствие'"
     />
 
     <p v-if="!hasSubmittedRsvp" class="cta-note reveal">
-      Нам будет очень приятно, если вы заполните короткую форму и поможете нам всё подготовить заранее.
+      Ответьте, пожалуйста, чтобы мы подготовили место, трансфер и детали вечера.
     </p>
 
     <div v-if="hasSubmittedRsvp" class="rsvp-success-inline" role="status" aria-live="polite">
@@ -61,9 +61,9 @@ const emit = defineEmits(["submit", "start-new-response"]);
       </p>
       <div v-if="hasGiftCollectionLink" class="rsvp-gift-inline">
         <p class="rsvp-gift-inline-text">
-          Если захотите порадовать нас дополнительно, можно сделать это сразу по кнопке ниже.
+          Если захотите сделать подарок, можно перейти по кнопке ниже.
         </p>
-        <a class="button" :href="giftCollectionUrl" target="_blank" rel="noreferrer"> Бабло </a>
+        <a class="button" :href="giftCollectionUrl" target="_blank" rel="noreferrer"> Подарок молодым </a>
       </div>
       <div class="rsvp-success-actions">
         <button class="text-link" type="button" @click="emit('start-new-response')">Заполнить заново</button>
@@ -75,7 +75,7 @@ const emit = defineEmits(["submit", "start-new-response"]);
 
     <form v-if="!hasSubmittedRsvp" class="rsvp-form reveal" @submit.prevent="emit('submit')">
       <div class="rsvp-form-head field-full">
-        <p class="rsvp-form-lead">После подтверждения участия мы сразу откроем детали подарка.</p>
+        <p class="rsvp-form-lead">После ответа мы покажем следующий шаг.</p>
       </div>
 
       <label class="field field-full">

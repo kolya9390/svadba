@@ -37,6 +37,20 @@ onMounted(() => {
 
 <template>
   <div class="page-shell">
+    <div class="romantic-pattern page-pattern" aria-hidden="true">
+      <span class="pattern-heart pattern-heart-left"></span>
+      <span class="pattern-heart pattern-heart-loop"></span>
+      <span class="pattern-heart pattern-heart-right"></span>
+      <span class="pattern-heart pattern-heart-small-left"></span>
+      <span class="pattern-heart pattern-heart-small-right"></span>
+      <span class="pattern-heart pattern-heart-center"></span>
+      <span class="pattern-dot pattern-dot-left"></span>
+      <span class="pattern-dot pattern-dot-mid"></span>
+      <span class="pattern-dot pattern-dot-right"></span>
+      <span class="pattern-dot pattern-dot-soft-left"></span>
+      <span class="pattern-dot pattern-dot-soft-right"></span>
+    </div>
+
     <header class="topbar">
       <a class="brand" href="#hero">Н&amp;А</a>
       <button
