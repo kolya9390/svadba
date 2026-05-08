@@ -14,10 +14,13 @@ defineProps({
     <div class="hero-copy hero-static">
       <h1>
         <span>Мы давно идём к этому.</span>
-        <span>Очень давно.</span>
+        <span class="hero-title-small">Очень давно.</span>
       </h1>
       <div class="hero-rule" aria-hidden="true"></div>
-      <p class="hero-meta">24 июля 2026 · База отдыха Кибик</p>
+      <p class="hero-meta">
+        <span>24 июля 2026</span>
+        <span>База отдыха Кибик</span>
+      </p>
     </div>
 
     <div class="hero-visual hero-static">

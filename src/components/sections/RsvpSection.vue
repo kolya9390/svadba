@@ -91,8 +91,8 @@ const emit = defineEmits(["submit", "start-new-response"]);
         />
       </label>
 
-      <fieldset class="field field-full segmented">
-        <legend>Сможете прийти?</legend>
+      <div class="field field-full segmented" role="radiogroup" aria-labelledby="attendance-title">
+        <p id="attendance-title" class="field-title">Сможете прийти?</p>
         <div class="segmented-options">
           <label>
             <input
@@ -113,7 +113,7 @@ const emit = defineEmits(["submit", "start-new-response"]);
             <span>К сожалению, не смогу</span>
           </label>
         </div>
-      </fieldset>
+      </div>
 
       <label class="field field-full">
         <span>Сколько гостей будет с вами?</span>
@@ -123,8 +123,8 @@ const emit = defineEmits(["submit", "start-new-response"]);
         </select>
       </label>
 
-      <fieldset class="field field-full segmented segmented-secondary">
-        <legend>Нужен ли трансфер до места проведения мероприятия?</legend>
+      <div class="field field-full segmented segmented-secondary" role="radiogroup" aria-labelledby="transfer-title">
+        <p id="transfer-title" class="field-title">Нужен ли трансфер до места проведения мероприятия?</p>
         <div class="segmented-options">
           <label>
             <input v-model="rsvpForm.transfer" type="radio" value="Да, буду рад" name="transfer" />
@@ -139,17 +139,17 @@ const emit = defineEmits(["submit", "start-new-response"]);
             <span>Сообщу позже</span>
           </label>
         </div>
-      </fieldset>
+      </div>
 
-      <fieldset class="field field-full checklist">
-        <legend>Что вам ближе из напитков?</legend>
+      <div class="field field-full checklist" role="group" aria-labelledby="drinks-title">
+        <p id="drinks-title" class="field-title">Что вам ближе из напитков?</p>
         <div class="check-options">
           <label v-for="drink in drinkOptions" :key="drink">
             <input v-model="rsvpForm.drinks" type="checkbox" :value="drink" name="drinks" />
             <span>{{ drink }}</span>
           </label>
         </div>
-      </fieldset>
+      </div>
 
       <label class="field field-full">
         <span>Ваши пожелания или комментарии для Николая и Анастасии</span>

@@ -3,6 +3,7 @@ export const navItems = [
   { href: "#schedule", label: "Программа" },
   { href: "#location", label: "Локация" },
   { href: "#dress-code", label: "Дресс-код" },
+  { href: "#rsvp", label: "Анкета" },
 ];
 
 export const invitationText =
@@ -48,4 +49,3 @@ export const drinkOptions = [
   "Белое вино",
   "Безалкогольные напитки",
 ];
-
