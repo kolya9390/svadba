@@ -1124,6 +1124,9 @@ section[id] {
 }
 
 .timeline {
+  --timeline-time-col: clamp(132px, 14vw, 176px);
+  --timeline-marker-col: 86px;
+  --timeline-marker-size: 44px;
   width: min(100%, 920px);
   margin: 0 auto;
   padding: clamp(8px, 1.4vw, 16px) 0 clamp(22px, 3vw, 36px);
@@ -1138,16 +1141,17 @@ section[id] {
   position: absolute;
   top: 0;
   bottom: 0;
-  left: calc(clamp(132px, 14vw, 176px) + 43px);
+  left: calc(var(--timeline-time-col) + (var(--timeline-marker-col) / 2));
   width: 1px;
+  transform: translateX(-0.5px);
   background: linear-gradient(180deg, transparent, rgba(196, 144, 154, 0.44) 10%, rgba(196, 144, 154, 0.44) 90%, transparent);
 }
 
 .timeline-item {
   position: relative;
   display: grid;
-  grid-template-columns: clamp(132px, 14vw, 176px) 86px minmax(0, 1fr);
-  gap: 0 clamp(8px, 1.5vw, 18px);
+  grid-template-columns: var(--timeline-time-col) var(--timeline-marker-col) minmax(0, 1fr);
+  gap: 0;
   align-items: center;
   min-height: clamp(92px, 7vw, 118px);
   padding: clamp(2px, 0.8vw, 8px) 0;
@@ -1172,8 +1176,8 @@ section[id] {
   grid-column: 2;
   grid-row: 1;
   justify-self: center;
-  width: 44px;
-  height: 44px;
+  width: var(--timeline-marker-size);
+  height: var(--timeline-marker-size);
   display: grid;
   place-items: center;
   border-radius: 999px;
@@ -1187,16 +1191,6 @@ section[id] {
   font-family: "Cormorant Garamond", serif;
   font-size: 1.08rem;
   line-height: 1;
-}
-
-.timeline-index {
-  position: absolute;
-  right: -24px;
-  top: -8px;
-  color: rgba(124, 79, 50, 0.48);
-  font-size: 0.66rem;
-  line-height: 1;
-  letter-spacing: 0.08em;
 }
 
 .timeline-time {
@@ -2295,17 +2289,19 @@ section[id]:target .reveal {
   }
 
   .timeline {
+    --timeline-marker-size: 40px;
+    --timeline-marker-col: 40px;
     padding-top: 8px;
     gap: 24px;
   }
 
   .timeline::before {
-    left: 20px;
+    left: calc(var(--timeline-marker-col) / 2);
   }
 
   .timeline-marker {
-    width: 40px;
-    height: 40px;
+    width: var(--timeline-marker-size);
+    height: var(--timeline-marker-size);
   }
 
   .timeline-item {
@@ -2340,15 +2336,6 @@ section[id]:target .reveal {
   .timeline-copy {
     grid-row: 2;
     padding-left: 0;
-  }
-
-  .timeline-index {
-    right: auto;
-    left: 50%;
-    top: auto;
-    bottom: -16px;
-    transform: translateX(-50%);
-    font-size: 0.6rem;
   }
 
   .button,
