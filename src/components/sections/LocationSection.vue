@@ -56,6 +56,8 @@ const emit = defineEmits(["map-error", "copy-coordinates"]);
         </a>
 
         <div class="location-copy">
+          <p class="location-kicker">База отдыха Кибик</p>
+          <h3>Тёплая загородная локация у воды</h3>
           <div class="location-meta">
             <span class="location-chip">24 июля 2026</span>
             <span class="location-chip">На природе</span>
@@ -72,11 +74,6 @@ const emit = defineEmits(["map-error", "copy-coordinates"]);
             <a class="button button-secondary" :href="yandexMapUrl" target="_blank" rel="noreferrer">
               Открыть в картах
             </a>
-          </div>
-          <div class="location-utility">
-            <button class="text-link utility-button" type="button" @click="emit('copy-coordinates')">
-              {{ copiedCoordinates ? "Координаты скопированы" : "Скопировать локацию" }}
-            </button>
           </div>
         </div>
       </div>

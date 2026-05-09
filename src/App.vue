@@ -44,11 +44,8 @@ onMounted(() => {
       <span class="pattern-heart pattern-heart-small-left"></span>
       <span class="pattern-heart pattern-heart-small-right"></span>
       <span class="pattern-heart pattern-heart-center"></span>
-      <span class="pattern-dot pattern-dot-left"></span>
-      <span class="pattern-dot pattern-dot-mid"></span>
-      <span class="pattern-dot pattern-dot-right"></span>
-      <span class="pattern-dot pattern-dot-soft-left"></span>
-      <span class="pattern-dot pattern-dot-soft-right"></span>
+      <span class="pattern-heart pattern-heart-filigree-left"></span>
+      <span class="pattern-heart pattern-heart-filigree-right"></span>
     </div>
 
     <header class="topbar">

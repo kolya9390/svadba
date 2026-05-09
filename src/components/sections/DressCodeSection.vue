@@ -11,7 +11,7 @@ defineProps({
 
 <template>
   <section id="dress-code" class="section dress-code">
-    <SectionHeading title="Палитра торжества" />
+    <SectionHeading title="Дресс-код "/>
 
     <div class="palette-strip reveal" aria-label="Палитра дресс-кода">
       <div

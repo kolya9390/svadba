@@ -54,11 +54,6 @@ const emit = defineEmits(["submit", "start-new-response"]);
     </p>
 
     <div v-if="hasSubmittedRsvp" class="rsvp-success-inline" role="status" aria-live="polite">
-      <p class="rsvp-success-eyebrow">Подтверждение сохранено</p>
-      <p class="rsvp-success-inline-text">
-        Спасибо, {{ submittedGuestName }}. Мы сохранили подтверждение{{ lastSubmittedAt ? ` ${lastSubmittedAt}` : "" }}
-        и открыли следующий шаг ниже.
-      </p>
       <div v-if="hasGiftCollectionLink" class="rsvp-gift-inline">
         <p class="rsvp-gift-inline-text">
           Если захотите сделать подарок, можно перейти по кнопке ниже.
@@ -66,7 +61,6 @@ const emit = defineEmits(["submit", "start-new-response"]);
         <a class="button" :href="giftCollectionUrl" target="_blank" rel="noreferrer"> Подарок молодым </a>
       </div>
       <div class="rsvp-success-actions">
-        <button class="text-link" type="button" @click="emit('start-new-response')">Заполнить заново</button>
         <a class="text-link" :href="googleFormViewUrl" target="_blank" rel="noreferrer">
           Открыть Google Form
         </a>
