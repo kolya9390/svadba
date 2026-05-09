@@ -81,7 +81,6 @@ const emit = defineEmits(["submit", "start-new-response"]);
           autocomplete="name"
           maxlength="120"
           required
-          placeholder="Например, Анна Иванова"
         />
       </label>
 
@@ -152,7 +151,6 @@ const emit = defineEmits(["submit", "start-new-response"]);
           name="notes"
           rows="5"
           maxlength="500"
-          placeholder="Например, особенности питания, вопросы по размещению или что-то важное для нас"
         ></textarea>
       </label>
 
