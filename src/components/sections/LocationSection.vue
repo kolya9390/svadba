@@ -57,7 +57,7 @@ const emit = defineEmits(["map-error", "copy-coordinates"]);
 
         <div class="location-copy">
           <p class="location-kicker">База отдыха Кибик</p>
-          <h3>Тёплая загородная локация у воды</h3>
+          <h3>Загородная локация у воды</h3>
           <div class="location-meta">
             <span class="location-chip">24 июля 2026</span>
             <span class="location-chip">На природе</span>

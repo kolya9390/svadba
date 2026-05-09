@@ -15,7 +15,9 @@ defineProps({
         <span>Мы давно идём к этому.</span>
         <span class="hero-title-small">Очень давно.</span>
       </h1>
-      <div class="hero-rule" aria-hidden="true"></div>
+      <div class="hero-rule" aria-hidden="true">
+        <span></span>
+      </div>
       <p class="hero-meta">
         <span>24 июля 2026</span>
         <span>База отдыха Кибик</span>
