@@ -16,9 +16,12 @@ defineProps({
     <div class="section-heart section-heart-right" aria-hidden="true"></div>
     <div class="invitation-grid">
       <div class="invitation-copy reveal">
-        <p class="invitation-kicker">Николай &amp; Анастасия</p>
-        <h2 class="invitation-heading">Дорогие гости, будем рады видеть вас рядом</h2>
-        <div class="invitation-rule" aria-hidden="true"></div>
+        <h2 class="invitation-heading">
+          <span>Дорогие гости!</span>
+        </h2>
+        <div class="invitation-rule" aria-hidden="true">
+          <span></span>
+        </div>
         <p class="invitation-text">
           {{ invitationText }}
         </p>
