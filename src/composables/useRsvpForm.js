@@ -4,6 +4,7 @@ const googleFormViewUrl =
   "https://docs.google.com/forms/d/e/1FAIpQLSfDCL43fHnsH7Dp5m3Srq1U6IdWpV62eRMziE1JGSQ3xhwT6w/viewform?usp=dialog";
 const giftCollectionUrl = "https://www.tbank.ru/cf/7T7iS0cYJfk";
 const RSVP_STORAGE_KEY = "svadba-rsvp-submitted";
+const GOOGLE_FORM_SUBMIT_TIMEOUT_MS = 1400;
 
 const googleFormsConfig = {
   actionUrl:
@@ -17,6 +18,44 @@ const googleFormsConfig = {
     notes: "entry.3661868",
   },
 };
+
+function appendHiddenInput(form, name, value) {
+  const input = document.createElement("input");
+  input.type = "hidden";
+  input.name = name;
+  input.value = value;
+  form.append(input);
+}
+
+function submitToGoogleForms(formData) {
+  return new Promise((resolve) => {
+    const formId = `google-form-submit-${Date.now()}`;
+    const iframe = document.createElement("iframe");
+    const form = document.createElement("form");
+
+    iframe.name = formId;
+    iframe.style.display = "none";
+    iframe.setAttribute("aria-hidden", "true");
+
+    form.method = "POST";
+    form.action = googleFormsConfig.actionUrl;
+    form.target = formId;
+    form.style.display = "none";
+
+    formData.forEach((value, name) => {
+      appendHiddenInput(form, name, value);
+    });
+
+    document.body.append(iframe, form);
+    form.submit();
+
+    window.setTimeout(() => {
+      form.remove();
+      iframe.remove();
+      resolve();
+    }, GOOGLE_FORM_SUBMIT_TIMEOUT_MS);
+  });
+}
 
 export function useRsvpForm() {
   const submitState = ref("idle");
@@ -136,11 +175,7 @@ export function useRsvpForm() {
         formData.append(googleFormsConfig.fields.notes, rsvpForm.notes);
       }
 
-      await fetch(googleFormsConfig.actionUrl, {
-        method: "POST",
-        mode: "no-cors",
-        body: formData,
-      });
+      await submitToGoogleForms(formData);
 
       const trimmedName = rsvpForm.fullName.trim();
       submitState.value = "success";
