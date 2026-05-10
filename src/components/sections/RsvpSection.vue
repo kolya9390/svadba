@@ -117,7 +117,7 @@ const emit = defineEmits(["submit", "start-new-response"]);
         <div class="segmented-options">
           <label>
             <input v-model="rsvpForm.transfer" type="radio" value="Да, буду рад" name="transfer" />
-            <span>Да, буду рад</span>
+            <span>Да, буду рад(а)</span>
           </label>
           <label>
             <input v-model="rsvpForm.transfer" type="radio" value="Доберусь сам" name="transfer" />
