@@ -28,7 +28,7 @@ export function useRsvpForm() {
     fullName: "",
     attendance: "С удовольствием приду",
     guestsCount: "Только я",
-    transfer: "Доберусь сам",
+    transfer: "Доберусь сам(а)",
     drinks: [],
     notes: "",
   });
@@ -39,7 +39,8 @@ export function useRsvpForm() {
         googleFormsConfig.fields.fullName &&
         googleFormsConfig.fields.attendance &&
         googleFormsConfig.fields.guestsCount &&
-        googleFormsConfig.fields.transfer
+        googleFormsConfig.fields.transfer &&
+        googleFormsConfig.fields.drinks
     );
   });
 
@@ -75,7 +76,7 @@ export function useRsvpForm() {
     rsvpForm.fullName = "";
     rsvpForm.attendance = "С удовольствием приду";
     rsvpForm.guestsCount = "Только я";
-    rsvpForm.transfer = "Доберусь сам";
+    rsvpForm.transfer = "Доберусь сам(а)";
     rsvpForm.drinks = [];
     rsvpForm.notes = "";
     window.setTimeout(() => {
@@ -106,7 +107,7 @@ export function useRsvpForm() {
       return;
     }
 
-    if (!rsvpForm.fullName.trim()) {
+    if (!rsvpForm.fullName.trim() || rsvpForm.drinks.length === 0) {
       submitState.value = "validation_error";
       return;
     }

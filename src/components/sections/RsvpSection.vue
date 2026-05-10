@@ -116,12 +116,12 @@ const emit = defineEmits(["submit", "start-new-response"]);
         <p id="transfer-title" class="field-title">Нужен ли трансфер до места проведения мероприятия?</p>
         <div class="segmented-options">
           <label>
-            <input v-model="rsvpForm.transfer" type="radio" value="Да, буду рад" name="transfer" />
+            <input v-model="rsvpForm.transfer" type="radio" value="Да, буду рад(а)" name="transfer" />
             <span>Да, буду рад(а)</span>
           </label>
           <label>
-            <input v-model="rsvpForm.transfer" type="radio" value="Доберусь сам" name="transfer" />
-            <span>Доберусь сам</span>
+            <input v-model="rsvpForm.transfer" type="radio" value="Доберусь сам(а)" name="transfer" />
+            <span>Доберусь сам(а)</span>
           </label>
           <label>
             <input v-model="rsvpForm.transfer" type="radio" value="Сообщу позже" name="transfer" />
@@ -130,7 +130,7 @@ const emit = defineEmits(["submit", "start-new-response"]);
         </div>
       </div>
 
-      <div class="field field-full checklist" role="group" aria-labelledby="drinks-title">
+      <div class="field field-full checklist" role="group" aria-labelledby="drinks-title" aria-required="true">
         <p id="drinks-title" class="field-title">Что вам ближе из напитков?</p>
         <div class="check-options">
           <label v-for="drink in drinkOptions" :key="drink">
@@ -159,7 +159,7 @@ const emit = defineEmits(["submit", "start-new-response"]);
           анкету всегда можно открыть напрямую в Google Forms.
         </p>
 
-        <p v-if="submitState === 'validation_error'" class="form-message">Пожалуйста, укажите ваше имя.</p>
+        <p v-if="submitState === 'validation_error'" class="form-message">Пожалуйста, заполните обязательные поля.</p>
         <p v-else-if="submitState === 'integration_pending'" class="form-message">
           Анкета почти готова к отправке. Пока можно открыть её напрямую в Google Forms.
         </p>
