@@ -541,7 +541,7 @@ section[id] {
   z-index: 1;
   align-self: end;
   margin-top: -8px;
-  margin-bottom: -10px;
+  margin-bottom: 0;
 }
 
 .childhood {
@@ -556,7 +556,7 @@ section[id] {
   inset: 0;
   z-index: 0;
   border-radius: 0;
-  overflow: hidden;
+  overflow: visible;
   box-shadow: none;
 }
 
@@ -607,7 +607,7 @@ section[id] {
 
 .hero-names {
   position: absolute;
-  inset: auto 0 44px;
+  inset: auto 0 clamp(30px, 4.4svh, 48px);
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
@@ -744,7 +744,7 @@ section[id] {
     grid-column: 2;
     grid-row: 1;
     margin-top: 0;
-    margin-bottom: -14px;
+    margin-bottom: 0;
     align-self: end;
     justify-self: start;
   }
@@ -754,7 +754,7 @@ section[id] {
   }
 
   .hero-names {
-    inset: auto -8px 22px;
+    inset: auto -8px clamp(28px, 4.8svh, 42px);
   }
 
   .hero-name {
@@ -869,7 +869,7 @@ section[id] {
   background: var(--ink);
   position: relative;
   z-index: 2;
-  margin-top: -10px;
+  margin-top: 0;
 }
 
 .ticker-marquee {
@@ -1776,6 +1776,14 @@ section[id] {
   background: rgba(255, 255, 255, 0.76);
 }
 
+.segmented-options input:focus-visible + span,
+.check-options input:focus-visible + span {
+  border-color: rgba(190, 132, 131, 0.72);
+  box-shadow:
+    0 0 0 3px rgba(196, 144, 154, 0.16),
+    0 8px 18px rgba(44, 26, 16, 0.06);
+}
+
 .segmented-options input:checked + span {
   background: rgba(196, 144, 154, 0.22);
   color: var(--form-ink);
@@ -2030,6 +2038,10 @@ section[id]:target .reveal {
     animation: none;
   }
 
+  .invitation-photo img {
+    animation: none;
+  }
+
   .reveal {
     opacity: 1;
     transform: none;
@@ -2096,10 +2108,6 @@ section[id]:target .reveal {
 
   .location-photo {
     min-height: 320px;
-  }
-
-  .location-actions {
-    flex-direction: row;
   }
 
   .location-actions .button-secondary {
@@ -2386,7 +2394,7 @@ section[id]:target .reveal {
   }
 
   .hero-names {
-    inset: auto 0 clamp(26px, 5svh, 34px);
+    inset: auto 0 clamp(28px, 4.6svh, 36px);
     gap: clamp(18px, 5.2vw, 32px);
     left: 50%;
     right: auto;
@@ -2523,11 +2531,12 @@ section[id]:target .reveal {
   }
 
   .childhood {
-    width: min(96vw, 430px, 58svh);
+    width: min(96vw, 430px, 56svh);
   }
 
   .hero-visual {
-    margin-top: -18px;
+    margin-top: -12px;
+    margin-bottom: 0;
   }
 
   .pattern-heart-left {
@@ -2597,7 +2606,7 @@ section[id]:target .reveal {
 
 @media (max-width: 380px) {
   .childhood {
-    width: min(90vw, 420px, 56svh);
+    width: min(90vw, 420px, 54svh);
   }
 
   .hero-name {
@@ -2611,6 +2620,29 @@ section[id]:target .reveal {
     left: 50%;
     width: min(calc(100vw - 24px), 330px);
     transform: translateX(-50%);
+  }
+}
+
+@media (max-width: 380px) and (max-height: 700px) {
+  .hero {
+    gap: 4px;
+    padding-top: 12px;
+  }
+
+  .hero-rule {
+    margin: 8px 0 10px;
+  }
+
+  .hero-meta {
+    font-size: 0.76rem;
+  }
+
+  .childhood {
+    width: min(90vw, 400px, 51svh);
+  }
+
+  .hero-names {
+    bottom: 24px;
   }
 }
 
@@ -2654,10 +2686,11 @@ section[id]:target .reveal {
 
   .hero-visual {
     margin-top: 0;
+    margin-bottom: 0;
   }
 
   .hero-names {
-    inset: auto -2px 22px;
+    inset: auto -2px 24px;
     gap: clamp(14px, 3vw, 24px);
     justify-content: center;
   }

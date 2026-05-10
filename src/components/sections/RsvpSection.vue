@@ -165,7 +165,7 @@ const emit = defineEmits(["submit", "start-new-response"]);
 
         <p v-if="submitState === 'validation_error'" class="form-message">Пожалуйста, укажите ваше имя.</p>
         <p v-else-if="submitState === 'integration_pending'" class="form-message">
-          Форма уже готова. Осталось подключить `Google Forms formResponse` и `entry`-id полей.
+          Анкета почти готова к отправке. Пока можно открыть её напрямую в Google Forms.
         </p>
         <p v-else-if="submitState === 'success'" class="form-message form-message-success">
           Похоже, всё получилось. Мы сохранили подтверждение в этом браузере.
