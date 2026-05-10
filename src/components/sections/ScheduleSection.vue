@@ -11,7 +11,7 @@ defineProps({
 
 <template>
   <section id="schedule" class="section schedule">
-    <SectionHeading title="Программа торжества" />
+    <SectionHeading title="Программа дня" />
 
     <div class="schedule-layout">
       <ol class="timeline timeline-list">

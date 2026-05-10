@@ -1,7 +1,7 @@
 import { computed, reactive, ref, watch } from "vue";
 
 const googleFormViewUrl =
-  "https://docs.google.com/forms/d/e/1FAIpQLSfDCL43fHnsH7Dp5m3Srq1U6IdWpV62eRMziE1JGSQ3xhwT6w/viewform?usp=pp_url";
+  "https://docs.google.com/forms/d/e/1FAIpQLSfDCL43fHnsH7Dp5m3Srq1U6IdWpV62eRMziE1JGSQ3xhwT6w/viewform?usp=dialog";
 const giftCollectionUrl = "https://www.tbank.ru/cf/7T7iS0cYJfk";
 const RSVP_STORAGE_KEY = "svadba-rsvp-submitted";
 
@@ -9,12 +9,12 @@ const googleFormsConfig = {
   actionUrl:
     "https://docs.google.com/forms/d/e/1FAIpQLSfDCL43fHnsH7Dp5m3Srq1U6IdWpV62eRMziE1JGSQ3xhwT6w/formResponse",
   fields: {
-    fullName: "entry.597433237",
-    attendance: "entry.1483761790",
-    guestsCount: "entry.1068058553",
-    transfer: "entry.1933568808",
-    drinks: "entry.1243951679",
-    notes: "entry.1647716882",
+    fullName: "entry.2147483642",
+    attendance: "entry.913409654",
+    guestsCount: "entry.919115456",
+    transfer: "entry.379240082",
+    drinks: "entry.753478909",
+    notes: "entry.3661868",
   },
 };
 
@@ -175,4 +175,3 @@ export function useRsvpForm() {
     hydrateRsvpState,
   };
 }
-

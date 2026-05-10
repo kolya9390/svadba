@@ -49,10 +49,6 @@ const emit = defineEmits(["submit", "start-new-response"]);
       :title="hasSubmittedRsvp ? 'Спасибо, будем ждать вас.' : 'Подтвердите присутствие'"
     />
 
-    <p v-if="!hasSubmittedRsvp" class="cta-note reveal">
-      Ответьте, пожалуйста, чтобы мы подготовили место, трансфер и детали вечера.
-    </p>
-
     <div v-if="hasSubmittedRsvp" class="rsvp-success-inline" role="status" aria-live="polite">
       <div v-if="hasGiftCollectionLink" class="rsvp-gift-inline">
         <p class="rsvp-gift-inline-text">
